@@ -1,10 +1,12 @@
 package BTree;
 
+import java.util.Stack;
+
 import BinaryStree.Node;
 import ITree.ITree;
 
 public class BTree implements ITree {
-    Node root;
+    public Node root;
 
     public Node insert(int data) {
         // TODO Auto-generated method stub
@@ -27,8 +29,21 @@ public class BTree implements ITree {
     }
 
     public void inorderTraversal() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inorderTraversal'");
+        if (this.root == null) {
+            System.out.println("Tree is empty");
+            return;
+        }
+        Node cur = this.root;
+        Stack<Node> s = new Stack<>();
+        while (cur != null || s.size() > 0) {
+            while (cur != null) {
+                s.push(cur);
+                cur = cur.left;
+            }
+            cur = s.pop();
+            System.out.print(cur.data + " ");
+            cur = cur.right;
+        }
     }
 
     public void postorderTraversal() {
