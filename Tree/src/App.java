@@ -1,6 +1,6 @@
 import BTree.BTree;
 import BinaryStree.BinaryTree;
-import BinaryStree.Node;
+import Node.Node;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -10,6 +10,14 @@ public class App {
         tree.root.right = new Node(3);
         tree.root.left.left = new Node(4);
         tree.root.left.right = new Node(5);
-        tree.inorderTraversal();
+        // tree.inorderTraversal();
+        tree.postorderTraversal(tree.root);
     }
 }
+/**
+ * ----1
+ * ---/ \
+ * --2---3
+ * -/ \
+ * 4---5
+ */

@@ -1,4 +1,4 @@
-package BinaryStree;
+package Node;
 
 public class Node {
     public int data;

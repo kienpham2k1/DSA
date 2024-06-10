@@ -1,16 +1,26 @@
 package BTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
-import BinaryStree.Node;
 import ITree.ITree;
+import Node.Node;
 
 public class BTree implements ITree {
     public Node root;
 
     public Node insert(int data) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+        if (this.root == null) {
+            this.root = new Node(data);
+            return root;
+        }
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+
+        }
+        return null;
     }
 
     public void deletDeepest(Node d_node) {
@@ -23,32 +33,30 @@ public class BTree implements ITree {
         throw new UnsupportedOperationException("Unimplemented method 'delettion'");
     }
 
-    public void preorderTraversal() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'preorderTraversal'");
-    }
-
-    public void inorderTraversal() {
-        if (this.root == null) {
-            System.out.println("Tree is empty");
+    public void preorderTraversal(Node root) {
+        if (root == null)
             return;
-        }
-        Node cur = this.root;
-        Stack<Node> s = new Stack<>();
-        while (cur != null || s.size() > 0) {
-            while (cur != null) {
-                s.push(cur);
-                cur = cur.left;
-            }
-            cur = s.pop();
-            System.out.print(cur.data + " ");
-            cur = cur.right;
-        }
+        System.out.print(root.data + " ");
+        preorderTraversal(root.left);
+        preorderTraversal(root.right);
+
     }
 
-    public void postorderTraversal() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'postorderTraversal'");
+    public void inorderTraversal(Node root) {
+        if (root == null)
+            return;
+        inorderTraversal(root.left);
+        System.out.print(root.data + " ");
+        inorderTraversal(root.right);
+
+    }
+
+    public void postorderTraversal(Node root) {
+        if (root == null)
+            return;
+        postorderTraversal(root.left);
+        postorderTraversal(root.right);
+        System.out.print(root.data + " ");
     }
 
     public void levelorderTraversal() {

@@ -3,6 +3,8 @@ package BinaryStree;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import Node.Node;
+
 public class BinaryTree {
     public Node root;
 

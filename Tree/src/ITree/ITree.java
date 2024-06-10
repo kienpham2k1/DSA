@@ -1,6 +1,6 @@
 package ITree;
 
-import BinaryStree.Node;
+import Node.Node;
 
 public interface ITree {
 
@@ -30,17 +30,17 @@ public interface ITree {
     /*
      * Preorder tree traversal (Root - Left - Right)
      */
-    public void preorderTraversal();
+    public void preorderTraversal(Node root);
     /*
      * inorder tree traversal (Left - Root - Right)
      */
 
-    public void inorderTraversal();
+    public void inorderTraversal(Node root);
     /*
      * Postorder tree traversal (Left - Right - Root)
      */
 
-    public void postorderTraversal();
+    public void postorderTraversal(Node root);
 
     /*
      * Function for Level order tree traversal
