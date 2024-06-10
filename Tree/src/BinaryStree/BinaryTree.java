@@ -1,5 +1,6 @@
 package BinaryStree;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -43,6 +44,29 @@ public class BinaryTree {
                 }
             }
         }
+    }
+
+    public ArrayList<Integer> inOrderTrav() {
+        ArrayList<Integer> arr = new ArrayList<>();
+        Stack<Node> s = new Stack<>();
+        if (this.root == null)
+            return null;
+        Node cur = this.root;
+        while (true) {
+            if (cur != null) {
+                s.push(cur);
+                cur = cur.left;
+            } else {
+                if (s.isEmpty())
+                    break;
+                cur = s.peek();
+                arr.add(cur.data);
+                cur = s.pop();
+                cur = cur.right;
+            }
+
+        }
+        return arr;
     }
 
 }
